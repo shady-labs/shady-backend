@@ -17,7 +17,7 @@ import { GraphQLLocalStrategy, buildContext } from 'graphql-passport';
 import job from './cron.js';
 
 dotenv.config();
-
+// 
 job.start();
 
 const app = express();
