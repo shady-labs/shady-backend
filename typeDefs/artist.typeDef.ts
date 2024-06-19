@@ -4,6 +4,8 @@ const artistTypeDef = `#graphql
         name: String!
         walletAddress: String!
         tracks: [Track!]
+        albums: [Album!]
+        albumsId: [ID!]
     }
 
     type Query {
@@ -18,6 +20,7 @@ const artistTypeDef = `#graphql
     input CreateArtistInput {
         name: String!
         walletAddress: String!
+        albumsId: [ID]!
     }
 `;
 
