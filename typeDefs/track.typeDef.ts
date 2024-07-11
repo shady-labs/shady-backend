@@ -6,6 +6,7 @@ const trackTypeDef = `#graphql
         artists: [Artist!]!
         genres: [Genre]
         album: Album!
+        likes: Int!
     }
 
     type Query {
