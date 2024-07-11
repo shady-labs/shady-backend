@@ -1,5 +1,6 @@
 // import { tracks } from '../dummyData/data';
 import Artist from "../models/artist.model.js";
+import Genre from "../models/genre.model.js";
 import Track from "../models/track.model.js";
 
 const trackResolver = {
@@ -56,6 +57,17 @@ const trackResolver = {
             catch (error) {
                 console.log("Error getting Artist: ", error);
                 throw new error("Error getting Artist: ");
+            }        
+        },
+        async genres(parent) {
+            try {
+                // find genres with genrename present in array genres
+                const genres = await Genre.find({ name: { $in: parent.genres }});
+                return genres;
+            } 
+            catch (error) {
+                console.log("Error getting Genre: ", error);
+                throw new error("Error getting Genre: ");
             }        
         }
     }
