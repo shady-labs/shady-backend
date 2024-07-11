@@ -6,6 +6,11 @@ const ArtistSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+    genres: [{
+        type: String,
+        required: false,
+        unique: false,
+    }],
     walletAddress: {
         type: String,
         required: true,
