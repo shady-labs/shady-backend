@@ -17,6 +17,12 @@ const trackSchema = new mongoose.Schema({
         required: false,
         unique: false,
     }],
+    albumId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Album',
+        required: true,
+        unique: false,
+    },
 });
 
 const Track = mongoose.model("Track", trackSchema);
