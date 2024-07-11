@@ -1,4 +1,5 @@
 // import { artists } from "../dummyData/data.js";
+import Album from "../models/album.model.js";
 import Artist from "../models/artist.model.js";
 import Genre from "../models/genre.model.js";
 import Track from "../models/track.model.js";
@@ -36,6 +37,16 @@ const artistResolver = {
                 return genres;
             } catch (err) {
                 console.log("Error in user.genres resolver: ", err);
+                throw new Error(err.message || "Internal server error");
+            }
+        },
+        albums: async (parent) => {
+            try {
+                // find albums with artistID present in array artistsID
+                const albums = await Album.find({ artistsId: parent._id });
+                return albums;
+            } catch (err) {
+                console.log("Error in user.albums resolver: ", err);
                 throw new Error(err.message || "Internal server error");
             }
         }
