@@ -22,6 +22,12 @@ const ArtistSchema = new mongoose.Schema({
         required: false,
         unique: false,
     }],
+    followerCount: {
+        default: 0,
+        type: Number,
+        required: false,
+        unique: false,
+    },
 });
 
 const Artist = mongoose.model("Artist", ArtistSchema);
