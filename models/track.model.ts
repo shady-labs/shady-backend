@@ -12,6 +12,11 @@ const trackSchema = new mongoose.Schema({
         required: true,
         unique: false,
     }],
+    genres: [{
+        type: String,
+        required: false,
+        unique: false,
+    }],
 });
 
 const Track = mongoose.model("Track", trackSchema);
