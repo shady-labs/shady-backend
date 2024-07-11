@@ -1,4 +1,5 @@
 // import { tracks } from '../dummyData/data';
+import Album from "../models/album.model.js";
 import Artist from "../models/artist.model.js";
 import Genre from "../models/genre.model.js";
 import Track from "../models/track.model.js";
@@ -69,6 +70,16 @@ const trackResolver = {
                 console.log("Error getting Genre: ", error);
                 throw new error("Error getting Genre: ");
             }        
+        },
+        async album(parent) {
+            try {
+                const album = await Album.findById(parent.albumId);
+                return album;
+            } 
+            catch (error) {
+                console.log("Error getting Album: ", error);
+                throw new error("Error getting Album: ");
+            }
         }
     }
 };
