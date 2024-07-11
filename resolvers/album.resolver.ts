@@ -7,7 +7,7 @@ import Track from "../models/track.model.js";
 const albumResolver = {
     Query: {
         albums: async () => {
-        return Artist.find({});
+        return Album.find({});
         },
         album: async (_, { id }) => {
         return Album.findById(id);
