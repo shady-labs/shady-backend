@@ -23,6 +23,12 @@ const trackSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+    likes: {
+        default: 0,
+        type: Number,
+        required: false,
+        unique: false,
+    },
 });
 
 const Track = mongoose.model("Track", trackSchema);
