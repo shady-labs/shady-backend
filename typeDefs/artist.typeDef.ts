@@ -3,8 +3,9 @@ const artistTypeDef = `#graphql
         _id: ID!
         name: String!
         walletAddress: String!
-        tracks: [Track!]
+        tracks: [Track]
         genres: [Genre]
+        albums: [Album]
     }
 
     type Query {

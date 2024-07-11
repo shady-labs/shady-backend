@@ -4,26 +4,26 @@ import Artist from "../models/artist.model.js";
 import Genre from "../models/genre.model.js";
 import Track from "../models/track.model.js";
 
-const artistResolver = {
+const albumResolver = {
     Query: {
-        artists: async () => {
+        albums: async () => {
         return Artist.find({});
         },
-        artist: async (_, { id }) => {
-        return Artist.findById(id);
+        album: async (_, { id }) => {
+        return Album.findById(id);
         },
     },
-    Mutation: {
-        createArtist(_, { input }) {
+    Mutation: { 
+        createAlbum(_, { input }) {
             console.log("input: ", input)
-            return Artist.create(input);
+            return Album.create(input);
         }
     },
-    Artist: {
+    Album: {
         tracks: async (parent) => {
             try {
                 // find tracks with artistID present in array artistsID
-                const tracks = await Track.find({ artistsId: parent._id });
+                const tracks = await Track.find({ albumId: parent._id });
 				return tracks;
 			} catch (err) {
 				console.log("Error in user.tracks resolver: ", err);
@@ -39,18 +39,8 @@ const artistResolver = {
                 console.log("Error in user.genres resolver: ", err);
                 throw new Error(err.message || "Internal server error");
             }
-        },
-        albums: async (parent) => {
-            try {
-                // find albums with artistID present in array artistsID
-                const albums = await Album.find({ artistsId: parent._id });
-                return albums;
-            } catch (err) {
-                console.log("Error in user.albums resolver: ", err);
-                throw new Error(err.message || "Internal server error");
-            }
         }
     }
 };
 
-export default artistResolver;
+export default albumResolver;
