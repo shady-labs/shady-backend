@@ -3,6 +3,8 @@ const genreTypeDef = `#graphql
         _id: ID!
         name: String!
         tracks: [Track!]
+        artists: [Artist!]
+        albums: [Album!]
     }
 
     type Query {
