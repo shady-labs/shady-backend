@@ -5,6 +5,8 @@ const trackTypeDef = `#graphql
         name: String!
         artists: [Artist!]!
         genres: [Genre]
+        album: Album!
+        likes: Int!
     }
 
     type Query {
@@ -22,6 +24,7 @@ const trackTypeDef = `#graphql
         name: String!
         artistsId: [ID!]!
         genres: [ID!]
+        albumId: ID!
     }
     
     input UpdateTrackInput {

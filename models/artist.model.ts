@@ -16,6 +16,18 @@ const ArtistSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    albumsId: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Album',
+        required: false,
+        unique: false,
+    }],
+    followerCount: {
+        default: 0,
+        type: Number,
+        required: false,
+        unique: false,
+    },
 });
 
 const Artist = mongoose.model("Artist", ArtistSchema);
